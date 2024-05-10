@@ -38,8 +38,11 @@ console.log(`The odd numbers you gave are ${getOdds(numbers)}.`);
  */
 function getLength(numbers) {
    //todo
+
    //we need to find how many numbers are in the array
+   //.length is a basic function
    return numbers.length;
+
 }
 
 /**
@@ -48,9 +51,39 @@ function getLength(numbers) {
  */
 function getSum(numbers) {
   // TODO
+  //ways to do this; .reduce  and for loop
+
   //we need to add all the numbers up together
+  //my answer below
   return numbers.reduce((accumumilator, curr )=> accumumilator+curr, 0);
-    return getSum
+
+
+  //teachers answer below
+//reduce "sum and num placements dont matter what the word is, they just have to match"
+//Answer:
+//return numbers.reduce((sum, num)=>{return num+sum},0)
+
+//for loop
+//we must have 3 parts, 1, 2, 3
+//1 counter variable
+//2 statement that should be true
+//3 iterator
+
+// 0 1 2
+//[1,5,2]
+
+//1. sum=0, i=0 , yes i<3, sum=1, i=1
+//2. sum=1, i=1, yes i<3, sum=6, i= 2
+//3. sum=6, i=2, yes i<3, sum=8, i=3
+//4. sum=6, i=3, no i<3 STOP
+
+//Answer:
+/**let sum = 0
+for(let i=0; i<numbers.length; i++){
+sum= sum + numbers[i]
+}
+return sum
+*/
 }
 
 /**
@@ -59,8 +92,13 @@ function getSum(numbers) {
  */
 function getMean(numbers) {
   // TODO
+
+
   //we need to take the total sum of numbers and divide by how many there are
+  //my answer macthes teachers answer below
   return getSum(numbers) / getLength(numbers)
+
+
 }
 
 /**
@@ -69,8 +107,31 @@ function getMean(numbers) {
  */
 function getMin(numbers) {
   // TODO
+
+
   //we need to find the smallest number
+  //My answer below
   return Math.min(...numbers);
+
+  //Teachers Answers
+  //loop where we compare numbers and keep the lowest
+  //math.min = built in already
+  //sort and get first value
+
+  //Option 1: math.min
+  //"..." is called a spread operator
+  //Answer:
+  //return Math.min(...numbers)
+
+  //Option 2:Sort
+  //"a,b" these variable names dont matter could be anything
+  // if you do "b-a" its now going from biggest to smallest
+  //Answer:
+  //let sortedNumbers = numbers.sort((a,b)=>a-b)
+  return sortedNumbers[0]
+
+
+
 }
 
 /**
@@ -79,7 +140,9 @@ function getMin(numbers) {
  */
 function getMax(numbers) {
   // TODO
+
   //we need to find the largest number
+  //My answer and teachers answer below
   return Math.max(...numbers)
 }
 
@@ -90,7 +153,10 @@ function getMax(numbers) {
 function getRange(numbers) {
   // TODO
   //we need to find the range of the min and max number
+  //my answer matches teachers answer below :)
+
   return getMax(numbers) - getMin(numbers)
+
 }
 
 /**
@@ -101,11 +167,22 @@ function getEvens(numbers) {
   //todo
   //find the evens
   // i believe this is where we use the %2 mod
+  //my answer below
     return numbers.filter(numbers => numbers % 2 === 0 )
 
     // I think there is also a way to use this I just couldnt make it work
     //let getEvens = numbers.filter(numbers => numbers % 2 === 0 )
 
+    //teachers answer
+    //return numbers.filter(num=>num%2==0)
+//OR
+    //return numbers.filter(num=>{return num%2==0})
+//OR
+    //return numbers.filter(num=>{
+    //if (num%2==0){
+   //   return true
+   // })
+   // }
 }
 
 /**
@@ -118,5 +195,7 @@ function getOdds(numbers) {
   //same here, I believe this uses the %2 mod as well
   //I had to to do a lot of research on how to get odd numbers,
   //I am not sure if this is the code you are looking for, but it works lol
+
+  //mine and teachers answer
   return numbers.filter(numbers => numbers % 2 !== 0 )
 }
